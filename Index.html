@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<link rel="stylesheet" type="text/css" href="content/app.css">
+</head>
+<body>
+	<div class="container">
+		<div class="form">
+			<div class="form-header"><h3>Left indented form</h3></div>
+			<div class="form-content">
+				<div class="field">
+					<div class="label">Caps Only</div>
+					<div class="control">
+						<input type="text" id="txtCaps" name="Caps" class="caps" maxlength="5" 
+							data-val-event-keydown="Character"
+							data-val-event-save="Required"
+							data-val-length="5" />
+						<div class="validation" data-val-for="txtCaps"></div>
+					</div>
+				</div>
+				<div class="field">
+					<div class="label">Lowers only</div>
+					<div class="control">
+						<input type="text" id="txtLower" name="Lower" class="lower" maxlength="10" 
+							data-val-event-keydown="Character"
+							data-val-event-save="Required"
+							data-val-length="10" />
+						<div class="validation" data-val-for="txtCaps"></div>
+					</div>
+				</div>
+				<div class="field">
+					<div class="label">Numbers</div>
+					<div class="control">
+						<input type="text" id="txtNumber" name="Number" 
+							data-val-event-keydown="Number"
+							data-val-event-save="Required" />
+						<div class="validation" data-val-for="txtNumber"></div>
+					</div>
+				</div>
+				<div class="field">
+					<div class="label">Decimal</div>
+					<div class="control">
+						<input type="text" id="txtDecimal" name="Decimal" 
+							data-val-event-keydown="Decimal"
+							data-val-event-save="Required,Range"
+							data-val-min="5" data-val-max="100" />
+						<div class="validation" data-val-for="txtDecimal"></div>
+					</div>
+				</div>
+				<div class="field">
+					<div class="label">&nbsp;</div>
+					<div class="control">
+						<input type="button" id="btnSave" value="Submit" >
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="scripts/lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/app.js" ></script>
+	<script type="text/javascript" src="scripts/modules/validation.js" ></script>
+	<script type="text/javascript">
+		
+		jQuery(document).ready(function($) {
+			var validate = app.modules.validation.lib;
+			console.log(app);
+			$("input[data-val-event-keydown]").keydown(function(event) {
+				/* Act on the event */
+				var result = validate.keydown(this, event);
+				if(!result)
+					event.preventDefault();
+
+			});		
+		});
+	</script>
+</body>
+</html>
