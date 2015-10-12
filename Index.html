@@ -26,7 +26,7 @@
 							data-val-event-keydown="Character"
 							data-val-event-save="Required"
 							data-val-length="10" />
-						<div class="validation" data-val-for="txtCaps"></div>
+						<div class="validation" data-val-for="txtLower"></div>
 					</div>
 				</div>
 				<div class="field">
@@ -65,7 +65,7 @@
 		
 		jQuery(document).ready(function($) {
 			var validate = app.modules.validation.lib;
-			console.log(app);
+			
 			$("input[data-val-event-keydown]").keydown(function(event) {
 				/* Act on the event */
 				var result = validate.keydown(this, event);
@@ -73,6 +73,15 @@
 					event.preventDefault();
 
 			});		
+
+			$("#btnSave").click(function() {
+				/* Act on the event */
+				validate.control("#txtCaps", function(errorStr, validationCtrl) {
+					validationCtrl.text(errorStr);
+				})
+
+			});	
+
 		});
 	</script>
 </body>

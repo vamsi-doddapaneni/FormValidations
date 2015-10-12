@@ -70,6 +70,37 @@
 				}
 
 				return true;
+			},
+			control: function(senderId, errorFun) {
+				try {
+					var validationsStr = $(senderId).attr("data-val-event-save"),
+						validationsAry = validationsStr.split(",");
+
+					if (!$.isArray(validationsAry))
+						throw new Error("validations are not propery formatted for" + $(sender).attr("name"));;
+
+					for (var index in validationsAry) {
+						
+						var validationStr = validationsAry[index]
+							valueStr = $(senderId).val();
+						
+						if (validationStr === "Required") {
+							if($.trim(valueStr) === "") {
+								if(errorFun)
+									errorFun( $(senderId).attr("name") + " field is required", $("div[data-val-for='"+$(senderId).attr("id")+"']"));
+							}
+							
+						}
+						else if(validationStr === "Range") { 
+							//TODO: Impl Range validation
+						}
+					}
+
+				}
+				catch(error) {
+					console.error(error);
+				}
+
 			}
 
 		};
