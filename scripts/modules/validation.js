@@ -86,10 +86,11 @@
 						
 						if (validationStr === "Required") {
 							if($.trim(valueStr) === "") {
-								if(errorFun)
+								if(errorFun) {
+									$(senderId).addClass('error');
 									errorFun( $(senderId).attr("name") + " field is required", $("div[data-val-for='"+$(senderId).attr("id")+"']"));
+								}
 							}
-							
 						}
 						else if(validationStr === "Range") { 
 							//TODO: Impl Range validation

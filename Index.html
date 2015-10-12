@@ -14,8 +14,7 @@
 					<div class="control">
 						<input type="text" id="txtCaps" name="Caps" class="caps" maxlength="5" 
 							data-val-event-keydown="Character"
-							data-val-event-save="Required"
-							data-val-length="5" />
+							data-val-event-save="Required" />
 						<div class="validation" data-val-for="txtCaps"></div>
 					</div>
 				</div>
@@ -24,8 +23,7 @@
 					<div class="control">
 						<input type="text" id="txtLower" name="Lower" class="lower" maxlength="10" 
 							data-val-event-keydown="Character"
-							data-val-event-save="Required"
-							data-val-length="10" />
+							data-val-event-save="Required" />
 						<div class="validation" data-val-for="txtLower"></div>
 					</div>
 				</div>
@@ -64,23 +62,53 @@
 	<script type="text/javascript">
 		
 		jQuery(document).ready(function($) {
+			
 			var validate = app.modules.validation.lib;
 			
 			$("input[data-val-event-keydown]").keydown(function(event) {
 				/* Act on the event */
-				var result = validate.keydown(this, event);
-				if(!result)
-					event.preventDefault();
-
+				try {
+					var result = validate.keydown(this, event);
+					if(!result)
+						event.preventDefault();
+				}
+				catch(error) {
+					//TODO: log error
+				}
 			});		
 
 			$("#btnSave").click(function() {
 				/* Act on the event */
-				validate.control("#txtCaps", function(errorStr, validationCtrl) {
-					validationCtrl.text(errorStr);
-				})
+				try {
+					validate.control("#txtCaps", function(errorStr, validationCtrl) {
+						validationCtrl.text(errorStr);
+					})
+
+					validate.control("#txtLower", function(errorStr, validationCtrl) {
+						validationCtrl.text(errorStr);
+					})
+
+					validate.control("#txtDecimal", function(errorStr, validationCtrl) {
+						validationCtrl.text(errorStr);
+					})
+				}
+				catch(error){
+					//TODO: log error
+				}
 
 			});	
+
+			$("input[data-val-event-save]").focus(function() {
+				/* Act on the event */
+				try {
+					$(this).removeClass('error');
+					$("div[data-val-for='"+$(this).attr('id')+"']").text("");
+				}
+				catch(error) {
+					//TODo: log error	
+				}
+			});		
+			
 
 		});
 	</script>

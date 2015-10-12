@@ -43,13 +43,22 @@ body {
 	
 }
 
-.form-content .field .label {
+.form-content .label {
 	float: left;
 	width: 33%;
 }
 
-.form-content .field .control {
+.form-content .control {
 	float: left;
+	width: 66%;
+}
+
+.form-content .validation {
+	padding-top: 5px;
+	font-style: italic;
+	font-family: Arial;
+	font-size: .8em;
+	color: #DC0008;
 	width: 66%;
 }
 
@@ -60,6 +69,11 @@ body {
 
 .form-content input:focus {
 	border: 2px solid #dedede;
+}
+
+.form-content input.error {
+	border: 1px solid #DC0008;
+	background-color: #FFDCDC;
 }
 
 .caps {
