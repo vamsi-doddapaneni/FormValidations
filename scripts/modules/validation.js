@@ -5,6 +5,11 @@
 		if(!$)
 			throw new Error("$ (JQuery) module not loaded");
 
+		var comfig = {
+			minNum: null,
+			maxNum: null
+		};
+
 		var validationModule = {
 			isKeyCodeANumber: function(e){
 				try {
@@ -89,11 +94,30 @@
 								if(errorFun) {
 									$(senderId).addClass('error');
 									errorFun( $(senderId).attr("name") + " field is required", $("div[data-val-for='"+$(senderId).attr("id")+"']"));
+									break;
 								}
 							}
 						}
 						else if(validationStr === "Range") { 
 							//TODO: Impl Range validation
+							var minNum = $(senderId).attr('data-val-min'),
+								maxNum = $(senderId).attr('data-val-max');
+
+							if(minNum && maxNum){
+								var valueNum = parseFloat(valueStr);
+								if(valueNum < minNum || valueNum > maxNum) {
+									if(errorFun) {
+										$(senderId).addClass('error');
+										var errorMsgTmpl = $(senderId).attr('data-val-msg');
+										if(errorMsgTmpl) {
+											errorMsgTmpl = errorMsgTmpl.replace('{{data-val-min}}', minNum);
+											errorMsgTmpl = errorMsgTmpl.replace('{{data-val-max}}', maxNum);
+										}
+										errorFun( errorMsgTmpl, $("div[data-val-for='"+$(senderId).attr("id")+"']"));
+										break;
+									}
+								}
+							}
 						}
 					}
 

@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"remove",
+				"removeClass	.removeClass()"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"fo",
+				"font-family"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
 				"err",
 				"errorFun"
 			],
@@ -34,10 +54,6 @@
 			[
 				"validat",
 				"validationCtrl"
-			],
-			[
-				"pa",
-				"padding"
 			],
 			[
 				"pad",
@@ -83,7 +99,7 @@
 			"file": "Index.html",
 			"settings":
 			{
-				"buffer_size": 2644,
+				"buffer_size": 3221,
 				"line_ending": "Windows"
 			}
 		},
@@ -91,7 +107,7 @@
 			"file": "scripts/modules/validation.js",
 			"settings":
 			{
-				"buffer_size": 3005,
+				"buffer_size": 3065,
 				"line_ending": "Windows"
 			}
 		},
@@ -110,7 +126,7 @@
 			"file": "content/app.css",
 			"settings":
 			{
-				"buffer_size": 832,
+				"buffer_size": 1045,
 				"line_ending": "Windows"
 			}
 		},
@@ -160,6 +176,7 @@
 	},
 	"expanded_folders":
 	[
+		"/F/Projects/Sublime-Text-3/Projects/FormValidations/scripts"
 	],
 	"file_history":
 	[
@@ -201,7 +218,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -210,15 +227,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2644,
+						"buffer_size": 3221,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								979,
-								979
+								2912,
+								2912
 							]
 						],
 						"settings":
@@ -228,10 +245,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 945.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -240,15 +257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3005,
+						"buffer_size": 3065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2522,
-								2522
+								1663,
+								1663
 							]
 						],
 						"settings":
@@ -257,10 +274,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 409.0,
+						"translation.y": 364.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -298,15 +315,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 832,
+						"buffer_size": 1045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								477,
-								477
+								962,
+								962
 							]
 						],
 						"settings":
@@ -314,8 +331,8 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 405.0,
+						"translation.x": 0.0,
+						"translation.y": 694.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
